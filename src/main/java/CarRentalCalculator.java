@@ -1,5 +1,5 @@
 
-public class RentalCalculator {
+public class CarRentalCalculator {
 
 	public static double carRental(String carModel, int duration, boolean firstTimer, boolean member){
 		
