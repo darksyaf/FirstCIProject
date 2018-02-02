@@ -53,48 +53,72 @@ public class RentalAnalysis {
 	
 	//complete this method
 	public double aveMonthlyRentalDur(String carModel, ArrayList<RentalRecord> rlist) {
+		ArrayList<RentalRecord> hondaList = new ArrayList<RentalRecord>();
+		ArrayList<RentalRecord> toyotaList = new ArrayList<RentalRecord>();
+		double totalDuration = 0;
 		
-		//... 
 		
-		double months = rlist.size();
-		
-		double totalDays;
-		
-		double aveMonthlyRentalDura;
-		
-		DecimalFormat df = new DecimalFormat("#.#");
-		
-		for (int i = 0; i < rlist.size(); i++) {
-			totalDays += rlist.get(i).getDuration(); 
+		if(carModel.equals("Honda Fit")){
+			for (RentalRecord rentalRecord : rlist) {
+		        if (rentalRecord.getModel() == "Honda Fit") {
+		            hondaList.add(rentalRecord);
+		        }
+		}
+			for(RentalRecord rent : hondaList){
+	        	totalDuration += rent.getDuration();
+	    }
+			totalDuration = totalDuration/hondaList.size();
+			System.out.println("Honda Fit: average monthly rent duration = "+Math.floor(totalDuration));
+			
+		}else{
+			for (RentalRecord rentalRecord : rlist) {
+		        if (rentalRecord.getModel() == "Toyota Wish") {
+		        	toyotaList.add(rentalRecord);
+		        }
+		}
+			for(RentalRecord rent : toyotaList){
+	        	totalDuration += rent.getDuration();
+	    }
+			totalDuration = totalDuration/toyotaList.size();
+			System.out.println("Toyota Wish: average monthly rent duration = "+Math.floor(totalDuration));
 		}
 		
-		aveMonthlyRentalDura = totalDays / months;
 		
-		df.format(aveMonthlyRentalDura);
-		
-		return aveMonthlyRentalDura;
-		
-		
+		return Math.floor(totalDuration);
 		
 	}
 	
+	
 	//complete this method
 	public  double totalRev(String carModel, ArrayList<RentalRecord> rlist) {
+		ArrayList<RentalRecord> hondaList = new ArrayList<RentalRecord>();
+		ArrayList<RentalRecord> toyotaList = new ArrayList<RentalRecord>();
+		double totalRev = 0;
 
-		//... 
-		
-		double totalReve;
-		
-		for (int i = 0; i < rlist.size(); i++) {
-			totalReve += rlist.get(i).getRevenue();
+		if(carModel.equals("Honda Fit")){
+			for (RentalRecord rentalRecord : rlist) {
+		        if (rentalRecord.getModel() == "Honda Fit") {
+		            hondaList.add(rentalRecord);
+		        }
+		}
+			for(RentalRecord rent : hondaList){
+				totalRev += rent.getRevenue();
+	    }
+			System.out.println("total rev for past 6 months = "+totalRev);
+			
+		}else{
+			for (RentalRecord rentalRecord : rlist) {
+		        if (rentalRecord.getModel() == "Toyota Wish") {
+		        	toyotaList.add(rentalRecord);
+		        }
+		}
+			for(RentalRecord rent : toyotaList){
+				totalRev += rent.getRevenue();
+	    }
+			System.out.println("total rev for past 6 months = "+totalRev);
 		}
 		
-		DecimalFormat df = new DecimalFormat("#.#");
-		
-		df.format(totalReve);
-		
-		return totalReve;
-		
+		return totalRev;
 	}
 	
 }
