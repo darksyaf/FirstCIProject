@@ -68,7 +68,7 @@ public class RentalAnalysis {
 			totalDays += rlist.get(i).getDuration(); 
 		}
 		
-		aveMonthlyRentalDur = totalDays / months;
+		aveMonthlyRentalDura = totalDays / months;
 		
 		df.format(aveMonthlyRentalDura);
 		
